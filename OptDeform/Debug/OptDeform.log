@@ -1,0 +1,11 @@
+﻿Build started 2016/9/26 13:47:00.
+     1>Project "C:\Users\hsienyu\Documents\Visual Studio 2015\Projects\OptDeform\OptDeform\OptDeform.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"C:\Users\hsienyu\Documents\Visual Studio 2015\Projects\OptDeform\packages\openmesh.6.2\build\native\../..//build/native/include/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _USE_MATH_DEFINES /D HAS_OPENMESH /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt src\main.cpp
+         main.cpp
+     1>c:\users\hsienyu\documents\visual studio 2015\projects\optdeform\optdeform\src\meshdeformation.h(4): fatal error C1083: Cannot open include file: 'cuda_runtime.h': No such file or directory
+     1>Done Building Project "C:\Users\hsienyu\Documents\Visual Studio 2015\Projects\OptDeform\OptDeform\OptDeform.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:02.78

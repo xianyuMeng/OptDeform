@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" InitialTargets="openmesh_init">
+  <PropertyGroup Label="Debug and static and RuntimeLibraryNull" Condition="( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkage-openmesh.ToLower())' == 'static' And ('$(RuntimeLibrary)' == '')">
+    <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+  </PropertyGroup>
+  <PropertyGroup Label="Release and static and RuntimeLibraryNull" Condition="( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkage-openmesh.ToLower())' == 'static' And ('$(RuntimeLibrary)' == '')">
+    <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+  </PropertyGroup>
+  <PropertyGroup Label="Default initializers for properties">
+    <Linkage-openmesh Condition="'$(Linkage-openmesh)' == ''">dynamic</Linkage-openmesh>
+    <CallingConvention-openmesh Condition="'$(CallingConvention-openmesh)' == ''">cdecl</CallingConvention-openmesh>
+  </PropertyGroup>
+  <ItemGroup>
+    <PropertyPageSchema Include="$(MSBuildThisFileDirectory)\default-propertiesui.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PropertyPageSchema Include="$(MSBuildThisFileDirectory)\openmesh-propertiesui-8be70e0d-8660-43d6-901e-cb3d1829983e.xml" />
+  </ItemGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>_USE_MATH_DEFINES;HAS_OPENMESH;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)../..//build/native/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)../..//build/native/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="static" Condition="'$(Linkage-openmesh.ToLower())' == 'static'">
+    <ClCompile>
+      <RuntimeLibrary>$(RuntimeLibrary)</RuntimeLibrary>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="Win32 and v110 and Debug" Condition="'$(Platform.ToLower())' == 'win32' And ( $(PlatformToolset.ToLower().IndexOf('v110')) &gt; -1 Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 )">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../..//build/native/lib/Win32\v110\Debug\OpenMeshToolsd.lib;$(MSBuildThisFileDirectory)../..//build/native/lib/Win32\v110\Debug\OpenMeshCored.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="Win32 and v110 and Release" Condition="'$(Platform.ToLower())' == 'win32' And ( $(PlatformToolset.ToLower().IndexOf('v110')) &gt; -1 Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 )">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../..//build/native/lib/Win32\v110\Release\OpenMeshTools.lib;$(MSBuildThisFileDirectory)../..//build/native/lib/Win32\v110\Release\OpenMeshCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="x64 and v110 and Debug" Condition="'$(Platform.ToLower())' == 'x64' And ( $(PlatformToolset.ToLower().IndexOf('v110')) &gt; -1 Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 )">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../..//build/native/lib/x64\v110\Debug\OpenMeshToolsd.lib;$(MSBuildThisFileDirectory)../..//build/native/lib/x64\v110\Debug\OpenMeshCored.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="x64 and v110 and Release" Condition="'$(Platform.ToLower())' == 'x64' And ( $(PlatformToolset.ToLower().IndexOf('v110')) &gt; -1 Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 )">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../..//build/native/lib/x64\v110\Release\OpenMeshTools.lib;$(MSBuildThisFileDirectory)../..//build/native/lib/x64\v110\Release\OpenMeshCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="Win32 and v120 and Debug" Condition="'$(Platform.ToLower())' == 'win32' And ( $(PlatformToolset.ToLower().IndexOf('v120')) &gt; -1 Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 )">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../..//build/native/lib/Win32\v120\Debug\OpenMeshToolsd.lib;$(MSBuildThisFileDirectory)../..//build/native/lib/Win32\v120\Debug\OpenMeshCored.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="Win32 and v120 and Release" Condition="'$(Platform.ToLower())' == 'win32' And ( $(PlatformToolset.ToLower().IndexOf('v120')) &gt; -1 Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 )">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../..//build/native/lib/Win32\v120\Release\OpenMeshTools.lib;$(MSBuildThisFileDirectory)../..//build/native/lib/Win32\v120\Release\OpenMeshCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="x64 and v120 and Debug" Condition="'$(Platform.ToLower())' == 'x64' And ( $(PlatformToolset.ToLower().IndexOf('v120')) &gt; -1 Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 )">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../..//build/native/lib/x64\v120\Debug\OpenMeshToolsd.lib;$(MSBuildThisFileDirectory)../..//build/native/lib/x64\v120\Debug\OpenMeshCored.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="x64 and v120 and Release" Condition="'$(Platform.ToLower())' == 'x64' And ( $(PlatformToolset.ToLower().IndexOf('v120')) &gt; -1 Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 )">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../..//build/native/lib/x64\v120\Release\OpenMeshTools.lib;$(MSBuildThisFileDirectory)../..//build/native/lib/x64\v120\Release\OpenMeshCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="Win32 and v140 and Debug" Condition="'$(Platform.ToLower())' == 'win32' And ( $(PlatformToolset.ToLower().IndexOf('v140')) &gt; -1 Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 )">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../..//build/native/lib/Win32\v140\Debug\OpenMeshToolsd.lib;$(MSBuildThisFileDirectory)../..//build/native/lib/Win32\v140\Debug\OpenMeshCored.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="Win32 and v140 and Release" Condition="'$(Platform.ToLower())' == 'win32' And ( $(PlatformToolset.ToLower().IndexOf('v140')) &gt; -1 Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 )">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../..//build/native/lib/Win32\v140\Release\OpenMeshTools.lib;$(MSBuildThisFileDirectory)../..//build/native/lib/Win32\v140\Release\OpenMeshCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="x64 and v140 and Debug" Condition="'$(Platform.ToLower())' == 'x64' And ( $(PlatformToolset.ToLower().IndexOf('v140')) &gt; -1 Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 )">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../..//build/native/lib/x64\v140\Debug\OpenMeshToolsd.lib;$(MSBuildThisFileDirectory)../..//build/native/lib/x64\v140\Debug\OpenMeshCored.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="x64 and v140 and Release" Condition="'$(Platform.ToLower())' == 'x64' And ( $(PlatformToolset.ToLower().IndexOf('v140')) &gt; -1 Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 )">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../..//build/native/lib/x64\v140\Release\OpenMeshTools.lib;$(MSBuildThisFileDirectory)../..//build/native/lib/x64\v140\Release\OpenMeshCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <UsingTask TaskName="openmesh_Contains" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll" TaskFactory="CodeTaskFactory">
+    <ParameterGroup>
+      <Text Output="false" ParameterType="System.String" />
+      <Library Output="false" Required="true" ParameterType="System.String" />
+      <Value Output="false" Required="true" ParameterType="System.String" />
+      <Result Output="true" ParameterType="System.String" />
+    </ParameterGroup>
+    <Task>
+      <Code>Result = ((Text ?? "").Split(';').Contains(Library) ) ? Value : String.Empty;</Code>
+    </Task>
+  </UsingTask>
+  <Target Name="openmesh_init">
+    <openmesh_Contains Text="Linkage-dynamic" Library="openmesh" Value="dynamic" Condition="'$(Linkage-openmesh)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkage-openmesh" />
+    </openmesh_Contains>
+    <openmesh_Contains Text="Linkage-static" Library="openmesh" Value="static" Condition="'$(Linkage-openmesh)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkage-openmesh" />
+    </openmesh_Contains>
+    <openmesh_Contains Text="Linkage-ltcg" Library="openmesh" Value="ltcg" Condition="'$(Linkage-openmesh)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkage-openmesh" />
+    </openmesh_Contains>
+    <openmesh_Contains Text="Linkage-sxs" Library="openmesh" Value="sxs" Condition="'$(Linkage-openmesh)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkage-openmesh" />
+    </openmesh_Contains>
+    <openmesh_Contains Text="CallingConvention-cdecl" Library="openmesh" Value="cdecl" Condition="'$(CallingConvention-openmesh)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConvention-openmesh" />
+    </openmesh_Contains>
+    <openmesh_Contains Text="CallingConvention-stdcall" Library="openmesh" Value="stdcall" Condition="'$(CallingConvention-openmesh)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConvention-openmesh" />
+    </openmesh_Contains>
+    <openmesh_Contains Text="CallingConvention-fastcall" Library="openmesh" Value="fastcall" Condition="'$(CallingConvention-openmesh)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConvention-openmesh" />
+    </openmesh_Contains>
+    <openmesh_Contains Text="CallingConvention-thiscall" Library="openmesh" Value="thiscall" Condition="'$(CallingConvention-openmesh)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConvention-openmesh" />
+    </openmesh_Contains>
+    <openmesh_Contains Text="CallingConvention-clrcall" Library="openmesh" Value="clrcall" Condition="'$(CallingConvention-openmesh)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConvention-openmesh" />
+    </openmesh_Contains>
+  </Target>
+</Project>
